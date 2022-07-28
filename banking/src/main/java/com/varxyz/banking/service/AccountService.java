@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.varxyz.banking.command.TransferCommand;
@@ -53,9 +54,12 @@ public class AccountService {
 		return dao.findAccountByAccountNum(accountNum);
 	}
 	
+	@Transactional
 	public void setBalance(String accountNum, double balance) {
 		dao.setBalance(accountNum, balance);
 	}
+	
+	@Transactional
 	public String transferBanlanceConfirm(TransferCommand transferCommand) {
 		double balance = transferCommand.getBalance();
 		Account outAccount = findAccountByAccountNum(transferCommand.getOutputAccountNum());

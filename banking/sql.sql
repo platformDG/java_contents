@@ -31,3 +31,6 @@ WHERE c.cid =1001
 ;
 SELECT * FROM Account WHERE accountNum = '634-96-1269';
 UPDATE Account SET balance = balance + 5000 WHERE accountNum = "333-65-5548"; 
+
+DROP TABLE Account;
+DROP TABLE Customer;

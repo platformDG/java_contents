@@ -1,4 +1,8 @@
 @charset "UTF-8";
+:root {
+  --custom_color: #CCD6A6;
+  --cus_color : rgb(204, 214, 166, .6);
+}
 @font-face {
   src: url("Jalnan.ttf");
   font-family: "Jalnan";
@@ -56,8 +60,8 @@ section {
 	bottom: 7px;
 	left: 0;
 	z-index: -1;
-	background: #EDE6DB;
-}
+	background: var(--custom_color); 
+	}
 
 .container>#content-wrapper {
 	display: flex;
@@ -150,14 +154,14 @@ section {
 }
 .add>input:focus {
 	outline: none;
-	border-color: rgba(65, 125, 122, .6);
-	box-shadow: 0 0 6px 2px rgba(65, 125, 122, .6);
+	border-color: var(--cus_color);
+	box-shadow: 0 0 6px 2px var(--cus_color);
 }
 
 .add>select.phoneNum_selec:focus {
 	outline: none;
-	border-color: rgba(65, 125, 122, .6);
-	box-shadow: 0 0 6px 2px rgba(65, 125, 122, .6);
+	border-color: var(--cus_color); 
+	box-shadow: 0 0 6px 2px var(--cus_color);
 }
 
 select.phoneNum_selec {
@@ -210,7 +214,7 @@ span.phone {
 	display: flex;
 	justify-content: center;
 	height: 100%;
-	background: #417D7A;
+	background: var(--custom_color);
 	border-radius: 30px;
 	width: 150px;
 	height: 50px;

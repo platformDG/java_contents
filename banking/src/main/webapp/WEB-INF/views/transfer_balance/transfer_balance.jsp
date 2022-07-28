@@ -51,7 +51,7 @@
                   <button type="submit" class="btn-inner">송금</button>
                 </div>
                 <div class="btn">
-                  <a href="<c:url value='/index'/>" class="in-btn">취소</a>
+                  <a href="<c:url value='/main'/>" class="in-btn">취소</a>
                 </div>
               </div>
             </div>

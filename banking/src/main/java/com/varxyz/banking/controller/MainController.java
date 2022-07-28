@@ -36,9 +36,15 @@ public class MainController {
 	public String loginPage() {
 		return "/login";
 	}
-	//메인페이지
-	@GetMapping("/index")
-	public String mainPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	/**
+	 * 강제로 주소창에 main이라고 적으면
+	 * 세션확인후에 main페이지를 보여준다.
+	 * 세션이 끊겨있다면 로그인페이지로 보여준다.
+	 */
+	@GetMapping("/main")
+	public String mainPage(HttpServletRequest request, HttpServletResponse response,
+			Model model) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		String userId = (String) session.getAttribute("userId");
 		if (userId == null || userId.length() == 0) {
@@ -48,12 +54,17 @@ public class MainController {
 			writer.close();
 			return "/login";
 		}
-		return "/index";
+		else {
+			List<Account> list = as.findAccountByCustomerId(userId);
+			model.addAttribute("list", list);
+			return "/main";
+		}
 	}
 	
 	//로그인 후 메인페이지
-	@PostMapping("/index")
-	public ModelAndView loginConfirm(@RequestParam String userId, @RequestParam String passwd, HttpServletRequest request) {
+	@PostMapping("/main")
+	public ModelAndView loginConfirm(@RequestParam String userId, @RequestParam String passwd, 
+			HttpServletRequest request) {
 		int i = cs.findCustomerByUserIdPasswd(userId, passwd);
 		ModelAndView mav = new ModelAndView();
 		if(i < 1) {
@@ -64,7 +75,9 @@ public class MainController {
 		else {
 			HttpSession session = request.getSession(true);
 			session.setAttribute("userId", userId);
-			mav.setViewName("index");
+			List<Account> list = as.findAccountByCustomerId(userId);
+			mav.addObject("list", list);
+			mav.setViewName("main");
 		}
 		return mav;
 	}

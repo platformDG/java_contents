@@ -27,7 +27,7 @@
 						<div class="btn-group">
 							<div class="i-btn">
 								<div class="btn">
-									<a href="<c:url value='/index'/>" class="in-btn">홈</a>
+									<a href="<c:url value='/main'/>" class="in-btn">홈</a>
 								</div>
 							</div>
 						</div>

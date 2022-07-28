@@ -6,7 +6,7 @@
         <div class="gnb">
           <div class="left-gnb">
             <ul>
-              <li><a href="<c:url value='/index'/>">홈</a></li>
+              <li><a href="<c:url value='/main'/>">홈</a></li>
             </ul>
           </div>
           <div class="right-gnb">

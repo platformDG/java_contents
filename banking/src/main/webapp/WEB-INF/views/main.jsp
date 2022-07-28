@@ -6,33 +6,33 @@
 
 <head>
   <meta charset="utf-8">
-  <title>계좌목록찾기</title>
+  <title>DG은행</title>
   <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/default.css'/>">
   <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/style.css'/>">
 </head>
 
 <body>
 	<header>
-    	<%@ include file="../include/header.jsp" %>
+    	<%@ include file="include/header.jsp" %>
 	</header>
   <section>
-    <div class="container">
+    <div class="container wide2">
       <div class="title-wrap">
-        <h3 class="title">계좌목록찾기</h3>
+        <h3 class="title">현재 ${userId}님 계좌목록</h3>
       </div>
       <div id="content-wrapper">
         <div class="content">
-          <form class="add_user" action="search_account" method="post">
+          <form class="add_user" action="" method="post">
+           <c:forEach var="li" items="${list}"> 
             <div class="add">
-              <span class="text on2">회원아이디</span><input type="text" name="userId" placeholder="회원아이디" value="${userId}" readonly>
+              <span class="text on2">계좌번호</span><input type="text" class="on" name="accountType" value=${li.accountNum}>
+              <span class="text on2">계좌잔액</span><input type="text" class="on"name="accType" value=${li.balance}>
             </div>
-            <div class="btn-group">
+          </c:forEach>
+          <div class="btn-group">
               <div class="i-btn">
                 <div class="btn">
-                  <button type="submit" class="btn-inner">확인</button>
-                </div>
-                <div class="btn">
-                   <a href="<c:url value='/main'/>" class="in-btn">취소</a>
+                  <a href="<c:url value='transfer_balance/transfer_balance'/>" class="in-btn">송금하기</a>
                 </div>
               </div>
             </div>

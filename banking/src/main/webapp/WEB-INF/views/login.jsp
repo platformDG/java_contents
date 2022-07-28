@@ -18,7 +18,7 @@
 			</div>
 			<div id="content-wrapper">
 				<div class="content">
-					<form class="add_user" action="index" method="post">
+					<form class="add_user" action="main" method="post">
 						<div class="add">
 							<input type="text" name="userId" placeholder="아이디">
 						</div>
