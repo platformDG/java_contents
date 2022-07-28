@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/default.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/style.css'/>">
 </head>
+
 <body>
 	<section>
 		<div class="container">

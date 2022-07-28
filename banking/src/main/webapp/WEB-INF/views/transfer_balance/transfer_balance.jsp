@@ -24,6 +24,7 @@
         <div class="content">
           <form class="add_user" action="transfer_balance" method="post">
             <div class="add">
+            <span class="text on3">출금할 계좌</span>
               <select class="select" name='outputAccountNum'>
                 <option value='' selected>-- 선택 --</option>
                 <c:forEach var="li" items="${list}">
@@ -32,16 +33,16 @@
               </select>
             </div>
             <div class="add">
-              <input type="text" name="balance" placeholder="출금할금액">
+              <span class="text on3">출금할 금액</span><input type="text" name="balance" placeholder="출금할금액">
             </div>
             <div class="add">
-              <input type="text" name="inputAccountNum" placeholder="입금계좌">
+              <span class="text on3">입금 계좌</span><input type="text" name="inputAccountNum" placeholder="입금계좌">
             </div>
              <div class="add">
-              <input type="test" name="userId" value="${userId}" readonly>
+              <span class="text on3">회원아이디</span><input type="test" name="userId" value="${userId}" readonly>
             </div>
             <div class="add">
-              <input type="password" name="passwd" placeholder="비밀번호">
+              <span class="text on3">비밀번호</span><input type="password" name="passwd" placeholder="비밀번호">
             </div>
             <p style="color:red">${errMsg}</p>
             <div class="btn-group">

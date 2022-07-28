@@ -39,7 +39,7 @@
 									<button type="submit" class="btn-inner">확인</button>
 								</div>
 								<div class="btn">
-									<a href="../index" class="in-btn">취소</a>
+									<a href="<c:url value='/login'/>" class="in-btn">취소</a>
 								</div>
 							</div>
 						</div>

@@ -24,7 +24,7 @@
         <div class="content">
           <form class="add_user" action="search_account" method="post">
             <div class="add">
-              <input type="text" name="userId" placeholder="회원아이디" value="${userId}" readonly>
+              <span class="text on2">회원아이디</span><input type="text" name="userId" placeholder="회원아이디" value="${userId}" readonly>
             </div>
             <div class="btn-group">
               <div class="i-btn">
@@ -32,7 +32,7 @@
                   <button type="submit" class="btn-inner">확인</button>
                 </div>
                 <div class="btn">
-                  <a href="../index" class="in-btn">취소</a>
+                   <a href="<c:url value='/index'/>" class="in-btn">취소</a>
                 </div>
               </div>
             </div>

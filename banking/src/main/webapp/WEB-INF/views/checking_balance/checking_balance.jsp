@@ -25,6 +25,7 @@
         <div class="content">
           <form class="add_user" action="checking_balance" method="post">
             <div class="add">
+            <span class="text on3">계좌번호</span>
               <select class="select" name='accountNum'>
                 <option value='' selected>-- 선택 --</option>
                 <c:forEach var="li" items="${list}">

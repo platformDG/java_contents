@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.varxyz.banking.command.TransferCommand;
 import com.varxyz.banking.dao.AccountDao;
 import com.varxyz.banking.dao.CustomerDao;
 import com.varxyz.banking.domain.Account;
@@ -55,7 +56,56 @@ public class AccountService {
 	public void setBalance(String accountNum, double balance) {
 		dao.setBalance(accountNum, balance);
 	}
+	public String transferBanlanceConfirm(TransferCommand transferCommand) {
+		double balance = transferCommand.getBalance();
+		Account outAccount = findAccountByAccountNum(transferCommand.getOutputAccountNum());
+		Account inAccount = findAccountByAccountNum(transferCommand.getInputAccountNum());
 
+		if(outAccount.getAccountNum().equals(inAccount.getAccountNum())) {
+			return "동일한 계좌에 송금할 수 없습니다.";
+		}
+		
+		if (outAccount instanceof SavingsAccount) {
+			SavingsAccount osa = (SavingsAccount) outAccount;
+			if(osa.withdraw(balance)) {
+				setBalance(osa.getAccountNum(), osa.getBalance());
+				
+				if(inAccount instanceof SavingsAccount) {
+					SavingsAccount isa = (SavingsAccount) inAccount;
+					isa.deposite(balance);
+					setBalance(isa.getAccountNum(), isa.getBalance());
+				}else {
+					CheckingAccount ica = (CheckingAccount) inAccount;
+					ica.deposite(balance);
+					setBalance(ica.getAccountNum(), ica.getBalance());
+				}
+				return "성공";
+			}
+			else {
+				return "잔액이 부족합니다.";
+			}
+		}
+		else {
+			CheckingAccount oca = (CheckingAccount) outAccount;
+			if(oca.withdraw(balance)) {
+				setBalance(oca.getAccountNum(), oca.getBalance());
+				if(inAccount instanceof SavingsAccount) {
+					SavingsAccount isa = (SavingsAccount) inAccount;
+					isa.deposite(balance);
+					setBalance(isa.getAccountNum(), isa.getBalance());
+				}else {
+					CheckingAccount ica = (CheckingAccount) inAccount;
+					ica.deposite(balance);
+					setBalance(ica.getAccountNum(), ica.getBalance());
+				}
+				return "성공";
+			}
+			else {
+				return "잔액이 부족합니다.";
+			}
+			
+		}
+	}
 	public String generateAccountNum() {
 		String numStr = String.valueOf((int)(Math.random()*1000000000));
 		StringBuilder sb = new StringBuilder();

@@ -26,13 +26,13 @@
 							<input type="radio" id="radio2" class="radio" name="accType" value="C" onclick=window.onload()><span class="text">CHECHING</span>
 						</div>
 						<div class="add">
-							<span class="text on2">대출한도/이자율</span><input type="text" name="darftOrRate" id="darftOrRate" placeholder="대출한도 / 이자율">
+							<span class="text on3">대출한도/이자율</span><input type="text" name="darftOrRate" id="darftOrRate" placeholder="대출한도 / 이자율">
 						</div>
 						<div class="add">
-							<span class="text on2">초기입금금액</span><input type="text" name="balance" id="balance" value="0">
+							<span class="text on3">초기입금금액</span><input type="text" name="balance" id="balance" value="0">
 						</div>
 						<div class="add">
-							<span class="text on2">회원아이디</span><input type="text" name="userId" placeholder="회원아이디" value="${userId}" readonly>
+							<span class="text on3">회원아이디</span><input type="text" name="userId" placeholder="회원아이디" value="${userId}" readonly>
 						</div>
 						<div class="btn-group">
 							<div class="i-btn">
@@ -40,7 +40,7 @@
 									<button type="submit" class="btn-inner">확인</button>
 								</div>
 								<div class="btn">
-									<a href="../index" class="in-btn">취소</a>
+									 <a href="<c:url value='/index'/>" class="in-btn">취소</a>
 								</div>
 							</div>
 						</div>
