@@ -1,0 +1,97 @@
+@charset "UTF-8";
+@font-face {
+	src: url("../font/DalseoHealingBold.ttf");
+	font-family: "DalseoDarling";
+}
+:root {
+	--sig-color : rgb(255, 241, 66, .6);
+	--border-color : rgb(255, 178, 15);
+}
+.wrap {
+	width : 100%;
+	height : calc(100vh - 80px);
+	overflow : auto;
+	font-family: "DalseoDarling";
+}
+.wrap .msg{
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	margin: 0 auto;
+	font-family: "DalseoDarling";
+	font-weight: 700;
+	text-align: center;
+}
+.wrap .msg.err{
+	color: red;
+}
+.wrap .msg.success{
+	color: black;
+}
+.wrap .inner-wrap{
+	width: 600px;
+	height: 200px;
+	margin: 0 auto;
+	margin-top: 100px;
+	border: 3px solid var(--border-color );
+	font-family: "DalseoDarling";
+}
+.wrap .inner-wrap.menuitem{
+	width: 600px;
+	height: 360px;
+}
+.wrap .inner-wrap .cform {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.wrap .inner-wrap .cform .iform {
+	width: 200px;
+	height: 40px;
+	font-size: 25px;
+	font-family: "DalseoDarling";
+	font-weight: 700;
+	text-align: center;
+}
+
+.in-btn {
+	width: 150px;
+	height: 40px;
+	margin-top: 20px;
+	background-color: var(--sig-color);
+	border: 2px solid var(--border-color );
+	text-align: center;
+	font-family: "DalseoDarling";
+	font-size: 20px;
+	font-weight: bold;
+}
+.wrap .inner-wrap2{
+	width: 800px;
+	height: 400px;
+	margin: 0 auto;
+	border: 3px solid var(--border-color );
+	font-family: "DalseoDarling";
+	overflow: scroll;
+	margin-top: 20px;
+}
+
+.wrap .inner-wrap2.i-table{
+	width: 900px;
+	height: 600px;
+}
+
+.inner-table {
+	border: 1px solid var(--border-color );
+	border-collapse: collapse;
+	width: calc( 100% - 15px );
+	margin: 0 auto;
+	text-align: center;
+}
+.inner-table thead {
+	background-color: var(--sig-color);
+}
+.inner-tablee th, .inner-table td {
+	border: 1px solid var(--border-color );
+}

@@ -1,0 +1,36 @@
+CREATE TABLE Category(
+   cid     			BIGINT			PRIMARY KEY AUTO_INCREMENT,
+   categoryName   	VARCHAR(20)		NOT NULL,
+   subCategoryName	VARCHAR(20)		NOT NULL,
+   regDate			TIMESTAMP		NOT NULL   DEFAULT CURRENT_TIMESTAMP
+)AUTO_INCREMENT = 1001;
+
+CREATE TABLE MenuItem(
+	mid				BIGINT			PRIMARY KEY AUTO_INCREMENT,
+	categoryId		BIGINT			NOT NULL,
+	menuName		VARCHAR(50)		NOT NULL,
+	menuPrice		DOUBLE			NOT NULL DEFAULT '0',
+	imageURL		VARCHAR(300)	NOT NULL,
+	imageName		VARCHAR(50)		NOT NULL,
+	regDate			TIMESTAMP		NOT NULL   DEFAULT CURRENT_TIMESTAMP,
+	
+	CONSTRAINT MenuItem_categoryId_Fk
+		FOREIGN KEY(categoryId) REFERENCES Category(cid)
+)AUTO_INCREMENT = 3001;
+
+CREATE TABLE OrderList(
+	oid				BIGINT			PRIMARY KEY AUTO_INCREMENT,
+	orderName		VARCHAR(50)		NOT NULL,
+	orderPrice		DOUBLE			NOT NULL DEFAULT '0',
+	regDate			TIMESTAMP		NOT NULL   DEFAULT CURRENT_TIMESTAMP
+)AUTO_INCREMENT = 1;
+
+drop table OrderList;
+
+INSERT INTO MenuItem(categoryId, menuName, menuPrice)
+VALUES(1001, "아메리카노","2500");
+
+SELECT * FROM OrderList;
+SELECT * FROM MenuItem;
+
+SELECT * FROM OrderList WHERE oid = (select max(oid) from OrderList) ;
